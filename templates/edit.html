@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block head %}
+<title>Edit Posts</title>
+{% endblock %} {% block body %}
+<h1>Edit</h1>
+<hr />
+
+<h2>Update Your Blog Posts</h2>
+<form action="/posts/edit/{{postii.id}}" method="POST">
+  <label for="title">Title</label>
+  <!-- input does have value tag so we replace placeholder with the value that it should have before editing as we are supposed to edit -->
+  <input
+    class="form-control"
+    type="text"
+    name="title"
+    id="title"
+    value="{{postii.title}}"
+    aria-label="Enter the Title"
+  />
+  <br />
+  <label for="content">Post</label>
+  <!-- text area does not have value tag so did like this -->
+  <textarea
+    class="form-control"
+    name="content"
+    id="content"
+    rows="3"
+    placeholder="Post Here"
+    aria-label="Post Here"
+  >
+{{postii.content}}</textarea
+  >
+  <br />
+  <label for="author">Author</label>
+  <input class="form-control" type="text" name='author' id=author
+  value="{{postii.author}}"" aria-label="Mention Your Name Here">
+  <br />
+  <input type="submit" value="Save" />
+</form>
+
+<hr />
+{% endblock %}
